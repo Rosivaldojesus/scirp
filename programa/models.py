@@ -24,6 +24,7 @@ class Gerenciadoras(models.Model):
 
 class Sap(models.Model):
     quadroSap = models.CharField(max_length=50, blank=True, null=True, verbose_name='Quadros Automação: ')
+    quadroEletrico = models.CharField(max_length=50, blank=True, null=True, verbose_name='Quadros Elétrico: ')
     STATUS =(
         ("Online","Online"),
         ("Offline","Offline"),
@@ -43,6 +44,11 @@ class Sap(models.Model):
 
 class Cameras(models.Model):
     nomeCamera = models.CharField(max_length=255, blank=True, null=True, verbose_name='Nome Câmera: ')
+    STATUS = (
+        ("Online", "Online"),
+        ("Offline", "Offline"),
+    )
+    statusCamera= models.CharField(max_length=50, choices=STATUS, verbose_name='Status')
     numeroCamera = models.IntegerField(blank=True, null=True, verbose_name='Número Câmera: ')
     numeroIp = models.CharField(max_length=20,blank=True, null=True, verbose_name='IP Câmera: ')
     FABRICANTE_CAMERA = (

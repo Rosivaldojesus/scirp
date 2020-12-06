@@ -10,6 +10,9 @@
     <section class="conteudo-principal">
         <div class="card">
           <h3>Circuito Fechado de TV</h3>
+          <div align='right'>
+            <a href="/cftv-shopping-create/" class="btn btn-success">Adicionar Câmera</a>
+          </div>
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <table class="table table-striped">
@@ -17,6 +20,7 @@
                 <tr>
                   <th scope="col">Número</th>
                   <th scope="col">Câmera</th>
+                  <th>Opções</th>
                 </tr>
               </thead>
               {% for cam in camera %}
@@ -24,6 +28,9 @@
                 <tr>
                   <th scope="row">{{ cam.numeroCamera }}</th>
                   <th>{{ cam.nomeCamera }}</th>
+                  <th>
+                    <a href="/cftv-shopping-update/{{ cam.id }}" class="btn">Editar</a>
+                  </th>
                 </tr>
               </tbody>
               {% endfor %}

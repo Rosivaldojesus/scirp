@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Adicionar Câmera</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+  <section class="conteudo-principal">
+    <form action="" method="post">{% csrf_token %}
+      {{form | crispy}}
+      <br> 
+      <input type="submit" class="btn btn-block btn-primary" value="Cadastrar">
+    </form>
+  </section>
+</div>
+{% endblock %}
+
+
