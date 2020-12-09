@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Autenticação </title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+    <section>
+          {% if request.user.is_authenticated %}
+
+            <div align="center" style="color: red"><br>
+            <h5>Ops, ação não permitida!!!</h5>
+                <a>Este usuário não está habilitado para está ação.</a>
+                <br>
+                <a>Entre em contato com o administrador do sistema!!!</a>
+
+                <hr>
+            </div>
+        {% endif %}
+    </section>
+    <section>
+        <div align="center">
+        <div class="card" style="width: 36rem;" align="center">
+            <h3>Autenticação</h3>
+          <div class="card-body">
+            <form action="" method="POST">{% csrf_token %}
+            {{ form|crispy }}
+
+            <button type="submit" class="btn btn-primary mt-10">Entrar</button>
+            </form>
+          </div>
+        </div>
+        </div>
+    </section>
+    <br><br>
+</div>
+{% endblock %}
