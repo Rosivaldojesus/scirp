@@ -19,18 +19,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def Index(request):
     qnt_online = Gerenciadoras.objects.filter(statusGerenciadora='Online').count()
     qnt_offline = Gerenciadoras.objects.filter(statusGerenciadora='Offline').count()
-
-    qnt_quadros_on = Sap.objects.filter(statusSap = 'online').count()
-    qnt_quadros_off = Sap.objects.filter(statusSap = 'offline').count()
-
-
-
+    qnt_quadros_on = Sap.objects.filter(statusSap = 'Online').count()
+    qnt_quadros_off = Sap.objects.filter(statusSap = 'Offline').count()
     return render(request, 'index.html',{'qnt_online': qnt_online,
                                          'qnt_offline': qnt_offline,
-                                         ' qnt_quadros_on':  qnt_quadros_on,
+                                         'qnt_quadros_on':  qnt_quadros_on,
                                          'qnt_quadros_off': qnt_quadros_off
-
-
                                          })
 
 
