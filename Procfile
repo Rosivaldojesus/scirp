@@ -1,1 +1,1 @@
-web: gunicorn adsscirp.wsgi
+web: gunicorn scirp.wsgi
