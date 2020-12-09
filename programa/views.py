@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import *
 
-# Autenticação
-from django.contrib.auth.decorators import permission_required, login_required
+#Controle de acesso na Views
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 
@@ -49,7 +52,7 @@ def Cftv_shopping_update(request, id=None):
 #-------------------------------------------------------------------------
 
 
-
+@login_required(login_url='/login/')
 def Automacao(request):
     gerenciadoras = Gerenciadoras.objects.all()
     controladoras = Sap.objects.all()
