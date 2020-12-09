@@ -8,15 +8,93 @@
 <div class="container-xl">
     <section class="conteudo-principal">
     <div class="row row-cols-1 row-cols-md-2">
-      <div class="col mb-4">
+      <div class="col mb-12"
         <div class="card">
             <h3>Sistema de Automação</h3>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+             
+
+              <!-- ********************************************************************************************** -->
+              <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+              <!-- ********************************************************************************************** -->
+              <div>
+                <canvas id="quantidadeGerenciadoras" width="700" height="250"></canvas>
+                  <script>
+                    var ctxy = document.getElementById('quantidadeGerenciadoras').getContext('2d');
+                    var myDoughnutChart = new Chart(ctxy, {
+                    // The type of chart we want to create
+                    type: 'pie',
+
+                      // The data for our dataset
+                        data: {
+                          labels: ['On', 'Off'],
+                          datasets: [{
+                            label: 'Gerenciadoras',
+                            backgroundColor: '',
+                            borderColor: 'white',
+                            data: [{{ qnt_online }},{{ qnt_offline }}],
+
+                            backgroundColor: [
+                            'rgba(46, 204, 113)',
+                            'rgba(231, 76, 60)',
+                            ],
+                          }]
+                        },
+                        // Configuration options go here
+                        options: {}
+                      });
+                  </script>
+                </div>
+                <div>
+                  <canvas id="quantidadeControladoras" width="700" height="250"></canvas>
+                    <script>
+                      var ctxy = document.getElementById('quantidadeControladoras').getContext('2d');
+                      var myDoughnutChart = new Chart(ctxy, {
+                      // The type of chart we want to create
+                      type: 'pie',
+  
+                        // The data for our dataset
+                          data: {
+                            labels: ['On', 'Off'],
+                            datasets: [{
+                              label: 'Gerenciadoras',
+                              backgroundColor: '',
+                              borderColor: 'white',
+                              data: [{{ qnt_quadros_on }},{{ qnt_quadros_off }}],
+  
+                              backgroundColor: [
+                              'rgba(46, 204, 113)',
+                              'rgba(231, 76, 60)',
+                              ],
+                            }]
+                          },
+                          // Configuration options go here
+                          options: {}
+                        });
+                    </script>
+                  </div>
+
+
+
+
+
+      
+
+
           </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+
 
 
       <div class="col mb-4">
