@@ -48,7 +48,7 @@ class Cameras(models.Model):
         ("Online", "Online"),
         ("Offline", "Offline"),
     )
-    statusCamera= models.CharField(max_length=50, choices=STATUS, verbose_name='Status')
+    statusCamera = models.CharField(max_length=50, choices=STATUS, verbose_name='Status')
     numeroCamera = models.IntegerField(blank=True, null=True, verbose_name='Número Câmera: ')
     numeroIp = models.CharField(max_length=20,blank=True, null=True, verbose_name='IP Câmera: ')
     FABRICANTE_CAMERA = (

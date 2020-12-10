@@ -89,9 +89,45 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
+    </section>
+    <section>
+      <div class="card">
+        <div class="card-header">
+          Circuito Fechado de TV
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <canvas id="Cameras" width="700" height="250"></canvas>
+                      <script>
+                        var ctxy = document.getElementById('Cameras').getContext('2d');
+                        var myDoughnutChart = new Chart(ctxy, {
+                        // The type of chart we want to create
+                        type: 'pie',
+  
+                          // The data for our dataset
+                            data: {
+                              labels: ['On', 'Off'],
+                              datasets: [{
+                                label: 'Gerenciadoras',
+                                backgroundColor: '',
+                                borderColor: 'white',
+                                data: [{{ qnt_cameras_on }},{{ qnt_cameras_off }}],
+  
+                                backgroundColor: [
+                                'rgba(46, 204, 113)',
+                                'rgba(231, 76, 60)',
+                                ],
+                              }]
+                            },
+                            // Configuration options go here
+                            options: {}
+                          });
+                      </script>
+        </div>
+      </div>
+    </section>  
 
 
 
@@ -106,7 +142,9 @@
 
 
 
-    
+
+
+
 </div>
 
 {% endblock %}

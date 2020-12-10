@@ -7,10 +7,6 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-
-
-
 #-------------------------------------------------------------------------
 #-------------------------------------------------------------------------
 #-------------------------------------------------------------------------
@@ -21,10 +17,16 @@ def Index(request):
     qnt_offline = Gerenciadoras.objects.filter(statusGerenciadora='Offline').count()
     qnt_quadros_on = Sap.objects.filter(statusSap = 'Online').count()
     qnt_quadros_off = Sap.objects.filter(statusSap = 'Offline').count()
+    qnt_cameras_on = Cameras.objects.filter(statusCamera='Online').count()
+    qnt_cameras_off = Cameras.objects.filter(statusCamera='Offline').count()
     return render(request, 'index.html',{'qnt_online': qnt_online,
                                          'qnt_offline': qnt_offline,
+
                                          'qnt_quadros_on':  qnt_quadros_on,
-                                         'qnt_quadros_off': qnt_quadros_off
+                                         'qnt_quadros_off': qnt_quadros_off,
+
+                                         'qnt_cameras_on': qnt_cameras_on,
+                                         'qnt_cameras_off': qnt_cameras_off
                                          })
 
 
@@ -65,6 +67,16 @@ def Automacao(request):
     gerenciadoras = Gerenciadoras.objects.all()
     controladoras = Sap.objects.all()
     return render(request, 'automacao.html',{'gerenciadoras': gerenciadoras, 'controladoras':controladoras })
+
+
+def AutomacaoUpdate(request, id=None):
+    sap = get_object_or_404(Sap, id=id)
+    form = SapForm(request.POST or None, instance=sap)
+    if form.is_valid():
+        obj = form.save()
+        obj.save()
+        return redirect('/automacao/')
+    return render(request,'automacao-update.html', {'form': form} )
 
 
 @login_required(login_url='/login/')

@@ -8,12 +8,11 @@
 {% block content %}
 <div class="container-xl">
     <section class="conteudo-principal">
-      <h3>Sistema de Automação</h3>
-      <div class="card">
+    
+      <div>
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">ID</th>
               <th scope="col">Gerenciadora</th>
               <th scope="col">Status</th>
             </tr>
@@ -21,7 +20,6 @@
           {% for ger in gerenciadoras %}
           <tbody>
             <tr>
-              <th scope="row">{{ ger.id }}</th>
               <th>{{ ger.gerenciadora }}</th>
               <th>{{ ger.statusGerenciadora }}</th>
             </tr>
@@ -29,36 +27,31 @@
           {% endfor %}
         </table>
       </div>
-    </section>
-    <hr>
-    <hr>
-    <hr>
-    <section>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Controladora</th>
-            <th>Quadro Elétrico</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        {% for control in controladoras %}
-        <tbody>
-          <tr>
-            <th>{{ control.quadroSap }}</th>
-            <th>{{ control.quadroEletrico }}</th>
-            <th>{{ control.status }}</th>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </section>   
-</div>
-
- 
-
       
-
-</section>
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Controladora</th>
+              <th>Quadro Elétrico</th>
+              <th>Status</th>
+              <th>Opções</th>
+            </tr>
+          </thead>
+          {% for control in controladoras %}
+          <tbody>
+            <tr>
+              <th>{{ control.quadroSap }}</th>
+              <th>{{ control.quadroEletrico }}</th>
+              <th>{{ control.statusSap }}</th>
+              <th>
+                  <a href="/automacao-update/{{ control.id }}" class="btn">Editar</a>
+                </th>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </section>
 </div>
 {% endblock %}
