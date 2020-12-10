@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Automação</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+    <section class="conteudo-principal">
+        <form action="" method="post"> {% csrf_token %}
+          {{ form |crispy }}
+        <input type="submit" class="btn btn-block btn-primary" value="Atualizar Informações">
+        </form>
+</section>
+</div>
+{% endblock %}
+
+
