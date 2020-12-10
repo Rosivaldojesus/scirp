@@ -41,12 +41,16 @@
           {% for control in controladoras %}
           <tbody>
             <tr>
-              <th>{{ control.quadroSap }}</th>
+              <th>
+                <i class="fas fa-bolt">
+                <a href="/automacao-view/?id={{ control.id }}">{{ control.quadroSap }}</a>
+                </i>
+              </th>
               <th>{{ control.quadroEletrico }}</th>
               <th>{{ control.statusSap }}</th>
               <th>
                   <a href="/automacao-update/{{ control.id }}" class="btn">Editar</a>
-                </th>
+              </th>
             </tr>
             {% endfor %}
           </tbody>

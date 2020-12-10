@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Automação</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+    <section class="conteudo-principal">
+    
+      <p>Controladora: {{ sap.quadroSap }}</p>
+      <p>Quadro Elétrico: {{ sap.quadroEletrico }}</p>
+      <p>Staus: {{ sap.statusSap }}</p>
+      <p>Quant.: {{ sap.quantidadeControladoras}}</p>
+      <p>Gerenciadora: {{ sap.Gerenciadora }}</p>
+      <p>Localização: {{ sap.localizacao }}</p>
+ 
+  </section>
+</div>
+{% endblock %}

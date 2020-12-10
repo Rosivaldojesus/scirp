@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Circuito Fechado de Televisão </title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+
+  <p>Número:{{ cftv.numeroCamera }}</p>
+  <p>Câmera:{{ cftv.nomeCamera }}</p>
+  <p>IP:{{ cftv.numeroIp }}</p>
+  <p>Fabricante:{{ cftv.fabricanteCamera }}</p>
+  <p>Login:{{ cftv.loginCamera }}</p>
+  <p>Senha:{{ cftv.senhaCamera }}</p>
+    
+</section>
+</div>
+{% endblock %}
+
+

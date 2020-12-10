@@ -26,7 +26,7 @@ def Index(request):
                                          'qnt_quadros_off': qnt_quadros_off,
 
                                          'qnt_cameras_on': qnt_cameras_on,
-                                         'qnt_cameras_off': qnt_cameras_off
+                                         'qnt_cameras_off': qnt_cameras_off,
                                          })
 
 
@@ -34,6 +34,14 @@ def Index(request):
 def Cftv_shopping(request):
     camera = Cameras.objects.all()
     return render(request, 'cftv-shopping.html', {'camera': camera})
+
+
+def Cftv_shopping_view(request):
+    cftv = request.GET.get('id')
+    dados = {}
+    if cftv:
+        dados['cftv'] = Cameras.objects.get(id=cftv)
+    return render(request, 'cftv-shopping-view.html', dados)    
 
 
 @login_required(login_url='/login/')
@@ -60,8 +68,6 @@ def Cftv_shopping_update(request, id=None):
 #-------------------------------------------------------------------------
 #-------------------------------------------------------------------------
 #-------------------------------------------------------------------------
-
-
 @login_required(login_url='/login/')
 def Automacao(request):
     gerenciadoras = Gerenciadoras.objects.all()
@@ -69,6 +75,16 @@ def Automacao(request):
     return render(request, 'automacao.html',{'gerenciadoras': gerenciadoras, 'controladoras':controladoras })
 
 
+@login_required(login_url='/login/')
+def AutomacaoView(request):
+    sap = request.GET.get('id')
+    dados = {}
+    if sap:
+        dados['sap'] = Sap.objects.get(id=sap)
+    return render(request, 'automacao-view.html', dados)
+
+
+@login_required(login_url='/login/')
 def AutomacaoUpdate(request, id=None):
     sap = get_object_or_404(Sap, id=id)
     form = SapForm(request.POST or None, instance=sap)
