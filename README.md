@@ -1,4 +1,2 @@
-"# scirp" 
-"# teste" 
-"# scrip"  
-"# scirp" 
+"# Sistema de Controle de Automação" 
+
